@@ -8,6 +8,8 @@ WanderLust is a web application built with the MEN stack (MongoDB, Express.js, N
 - **User Authentication:** Sign up and log in to manage your profile and bookings.
 - **Listing Management:** Create, edit, and view listings with detailed information and images.
 - **Interactive Maps:** View the location of listings on a map using Leaflet.
+- **Booking Functionality:** Browse listings, select available dates, and securely book accommodations.
+- **Booking History:** Users can view and manage their past and upcoming bookings within their profile.
 
 ## Technologies Used
 - **Architecture:** MVC (Model-View-Controller)
