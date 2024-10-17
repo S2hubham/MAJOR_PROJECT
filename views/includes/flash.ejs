@@ -1,0 +1,32 @@
+<!-- for success -->
+<% if(success && success.length){ %>
+    <div id="alert" class="alert alert-success alert-dismissible fade show offset-9 mt-2" role="alert">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<!-- for error -->
+<% if(error && error.length){ %>
+    <div id="alert" class="alert alert-danger alert-dismissible fade show offset-9 mt-2" role="alert">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+
+<script> 
+    // Function to remove the alert div after 1 second
+    // setTimeout(function() {
+    //     var alertDiv = document.getElementById('alert');
+    //     if (alertDiv) {
+    //         // Fade out the alert
+    //         alertDiv.classList.remove('show');
+    //         alertDiv.classList.add('fade');
+    //         // Remove the alert from DOM after transition
+    //         setTimeout(function() {
+    //             alertDiv.remove();
+    //         }, 20); // 150ms is the default fade transition time
+    //     }
+    // }, 4000); // 1000ms = 1 second
+</script>

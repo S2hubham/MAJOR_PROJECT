@@ -1,0 +1,48 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3 class="mt-3">Book Your Stay</h3>
+            <form action="/listings/<%= listing._id %>/book" method="POST" novalidate class="needs-validation">
+                <div class="mb-3">
+                    <label for="checkInDate" class="form-label">Check-In Date:</label>
+                    <input type="date" name="checkInDate" class="form-control" required>
+                    <div class="invalid-feedback">Please select a check-in date.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="checkOutDate" class="form-label">Check-Out Date:</label>
+                    <input type="date" name="checkOutDate" class="form-control" required>
+                    <div class="invalid-feedback">Please select a check-out date.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="paymentMethod" class="form-label">Payment Method:</label>
+                    <select name="paymentMethod" class="form-select" required>
+                        <option value="" disabled selected>Select a payment method</option>
+                        <option value="Card">Card</option>
+                        <option value="PayPal">PayPal</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a payment method.</div>
+                </div>
+                <button type="submit" class="btn btn-dark add-btn mt-3">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Example of Bootstrap validation handling
+        (function () {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</body>

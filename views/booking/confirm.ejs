@@ -1,0 +1,53 @@
+<% layout('/layouts/boilerplate') -%>
+
+<body>
+    <div class="row">
+        <div class="col-8 offset-3 mt-3">
+            <h3>Confirm Booking for <%= listing.title %></h3>
+        </div>
+    </div>
+    <div class="row"> 
+        <div class="col-6 offset-3 listing-card mt-2">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <% if (listing.images && listing.images.length > 0) { %>
+                        <% listing.images.forEach((img) => { %>
+                            <div class="carousel-slide">
+                                <img src="<%= img.url %>" alt="listing_image" class="carousel-image">
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <p>No images available</p>
+                    <% } %>
+                </div>
+                <% if (listing.images && listing.images.length > 1) { %>
+                    <button class="carousel-button prev">&lt;</button>
+                    <button class="carousel-button next">&gt;</button>
+                    <div class="carousel-dots"></div>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="col-6 offset-3 listing-card">          
+            <div class="card-body">
+                <p class="card-text">Owned by <i><b><%= listing.owner.username %></b></i><br></p>
+                <p class="card-text">| <%= listing.description %><br></p>
+                <p class="card-text">| &#8377; <%= listing.price.toLocaleString("en-IN") %><br></p>
+                <p class="card-text">| <%= listing.location %><br></p>
+                <p class="card-text">| <%= listing.country %><br></p>
+            </div>
+            <div class="btns">
+                <a href="/booking/<%= booking._id %>/confirmation"><button class="btn btn-dark add-btn mt-3">Confirm Booking</button></a>
+                <a href="/listings"><button class="btn btn-dark add-btn mt-3">Back</button></a>
+            </div>
+            <hr>
+        </div>
+
+        <!-- Map Container -->
+        <div class="col-8 offset-3 mt-3 mb-5">
+            <div id="map" style="height: 50vh; width: 75%;"></div>
+        </div>
+    </div>
+
+    
+</body>

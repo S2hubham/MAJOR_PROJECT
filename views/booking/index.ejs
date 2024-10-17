@@ -1,0 +1,11 @@
+<h2>Your Bookings</h2>
+<ul>
+    <% bookings.forEach(booking => { %>
+        <li>
+            <p><%= booking.listing.title %></p>
+            <p>Check-In: <%= booking.checkInDate.toDateString() %></p>
+            <p>Check-Out: <%= booking.checkOutDate.toDateString() %></p>
+            <p>Status: <%= booking.status %></p>
+        </li>
+    <% }) %>
+</ul>

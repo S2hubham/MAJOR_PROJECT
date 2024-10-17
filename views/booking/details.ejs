@@ -1,0 +1,56 @@
+<% layout('/layouts/boilerplate') -%>
+
+<body>
+    <div class="container">
+        <h2>All Bookings</h2>
+
+        <% if (booking && booking.length > 0) { %>
+            <% booking.forEach(booking => { %>
+                <div class="row mt-5">
+                    <div class="col-8 offset-3 mt-3">
+                        <h3>Booking Details for <%= booking.listing.title %></h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 offset-3 listing-card mt-2">
+                        <div class="carousel-container">
+                            <div class="carousel">
+                                <% if (booking.listing.images && booking.listing.images.length > 0) { %>
+                                    <% booking.listing.images.forEach((img) => { %>
+                                        <div class="carousel-slide">
+                                            <img src="<%= img.url %>" alt="listing_image" class="carousel-image">
+                                        </div>
+                                    <% }) %>
+                                <% } else { %>
+                                    <p>No images available</p>
+                                <% } %>
+                            </div>
+                            <% if (booking.listing.images && booking.listing.images.length > 1) { %>
+                                <button class="carousel-button prev">&lt;</button>
+                                <button class="carousel-button next">&gt;</button>
+                                <div class="carousel-dots"></div>
+                            <% } %>
+                        </div>
+                    </div>
+
+                    <div class="col-6 offset-3 listing-card mt-3">
+                        <div class="card-body">
+                            <p class="card-text">Owned by <i><b><%= booking.listing.owner.username %></b></i><br></p>
+                            <p class="card-text">| <%= booking.listing.description %><br></p>
+                            <p class="card-text">| &#8377; <%= booking.totalPrice.toLocaleString("en-IN") %><br></p>
+                            <p class="card-text">| <%= booking.listing.location %><br></p>
+                        </div>
+
+                        <form action="/booking/<%= booking._id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this booking?');">
+                            <button class="btn btn-primary mt-3">Delete Booking</button>
+                        </form>                        
+                    </div>
+                </div>
+                <hr>
+            <% }) %>
+        <% } else { %>
+            <p>No bookings found.</p>
+        <% } %>
+    </div>
+</body>
