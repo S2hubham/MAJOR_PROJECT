@@ -31,8 +31,8 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
-// const dbUrl = process.env.ATLASDB_URL;
-const dbUrl = "mongodb://localhost:27017/wanderlust";
+const dbUrl = process.env.ATLASDB_URL;
+// const dbUrl = "mongodb://localhost:27017/wanderlust";
 
 main()
 .then(() => {
@@ -71,10 +71,6 @@ const sessionOptions = {
     }
 };
 
-// app.get("/", (req, res) => {
-//     res.send("HIIII");
-// });
-
 
 
 // passport
@@ -95,10 +91,6 @@ app.use((req, res, next) => {
     next();
 });
 
-  
-// app.get("/", (req, res) => {
-//     res.redirect("/listings");
-// });
 
 //routes
 app.use("/", listingsRouter);
