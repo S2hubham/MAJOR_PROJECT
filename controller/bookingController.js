@@ -32,7 +32,7 @@ module.exports.createBooking = async (req, res) => {
         const checkOut = new Date(checkOutDate);
         if (checkIn >= checkOut) {
             req.flash("error", "Check-out date must be after check-in date.");
-            return res.redirect(`/booking/${listing._id}/new`);
+            return res.redirect(`/bookings/booking/${listing._id}/new`);
         }
 
         const days = (checkOut - checkIn) / (1000 * 60 * 60 * 24);
@@ -49,11 +49,11 @@ module.exports.createBooking = async (req, res) => {
 
         await booking.save();
         req.flash("success", "Booking created successfully!");
-        res.redirect(`/booking/${booking._id}/confirm`);
+        res.redirect(`/bookings/booking/${booking._id}/confirm`);
     } catch (error) {
         console.error(error);
         req.flash("error", "Error creating booking.");
-        res.redirect("/");
+        res.redirect("/bookings/booking/details");
     }
 };
 
@@ -63,14 +63,14 @@ module.exports.confirm = async (req, res) => {
         const booking = await Booking.findById(req.params.id).populate('listing');
         if (!booking) {
             req.flash("error", "Booking not found.");
-            return res.redirect("/bookings");
+            return res.redirect("/bookings/booking/details");
         }
         const listing = booking.listing;
         res.render('booking/confirm.ejs', { listing, booking }); 
     } catch (error) {
         console.error(error);
         req.flash("error", "Error retrieving booking.");
-        res.redirect("/bookings");
+        res.redirect("/bookings/booking/details");
     }
 };
 
@@ -85,7 +85,7 @@ module.exports.confirmBooking = async (req, res) => {
 
         if (booking.status === 'Confirmed') {
             req.flash("error", "This booking has already been confirmed.");
-            return res.redirect(`/booking/${booking._id}/details`);
+            return res.redirect(`/bookings/booking/${booking._id}/details`);
         }
 
         booking.status = 'Confirmed';
@@ -93,7 +93,7 @@ module.exports.confirmBooking = async (req, res) => {
         await booking.save();
 
         req.flash("success", "Booking confirmed successfully!");
-        res.redirect(`/booking/details`);
+        res.redirect(`/bookings/booking/details`);
     } catch (error) {
         console.error(error);
         if (error.name === 'CastError') {
@@ -101,7 +101,7 @@ module.exports.confirmBooking = async (req, res) => {
             return res.redirect("/bookings");
         }
         req.flash("error", "Error confirming booking.");
-        res.redirect("/bookings");
+        res.redirect("/bookings//booking/details");
     }
 };
 
@@ -111,13 +111,13 @@ module.exports.showBookingDetails = async (req, res) => {
         const booking = await Booking.find().populate('listing');
         if (!booking) {
             req.flash("error", "Booking not found.");
-            return res.redirect("/bookings");
+            return res.redirect("/bookings/booking/details");
         }
         res.render('booking/details.ejs', { booking });
     } catch (error) {
         console.error(error);
         req.flash("error", "Error retrieving booking.");
-        res.redirect("/bookings");
+        res.redirect("/bookings//booking/details");
     }
 };
 
@@ -130,10 +130,10 @@ module.exports.deleteBooking = async (req, res) => {
             return res.redirect("/bookings");
         }
         req.flash("success", "Booking deleted successfully!");
-        res.redirect('/booking/details'); 
+        res.redirect('/bookings/booking/details'); 
     } catch (error) {
         console.error(error);
         req.flash("error", "Error deleting booking.");
-        res.redirect("/bookings");
+        res.redirect("/bookings/booking/:id/delete");
     }
 };

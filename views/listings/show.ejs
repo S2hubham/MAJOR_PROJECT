@@ -44,7 +44,7 @@
                     <form action="/<%= listing._id %>?_method=DELETE" method="POST" onsubmit="return confirmDelete()">
                         <button class="btn btn-dark add-btn mt-1">Delete</button>
                     </form>
-                    <a href="/<%= listing._id %>/book" class="btn btn-dark add-btn mt-3">Book Now</a>
+                    <a href="/bookings/listings/<%= listing._id %>/book" class="btn btn-dark add-btn mt-3">Book Now</a>
                 </div>
             <% } else { %>
                 <a href="/"><button class="btn btn-dark add-btn mt-3">Back</button></a>

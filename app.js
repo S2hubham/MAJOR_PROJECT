@@ -95,8 +95,8 @@ app.use((req, res, next) => {
 //routes
 app.use("/", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
-app.use("/", userRouter);
-app.use("/", bookingRouter); 
+app.use("/user", userRouter);
+app.use("/bookings", bookingRouter); 
 
 
 app.all("*", (req, res, next) => {

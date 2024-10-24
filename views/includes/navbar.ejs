@@ -23,11 +23,11 @@
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="/new">Rent your home</a>
                 <% if(!currUser) { %>
-                <a class="nav-link" href="/signup"><b>Signup</b></a>
-                <a class="nav-link" href="/login"><b>Login</b></a>
+                <a class="nav-link" href="/user/signup"><b>Signup</b></a>
+                <a class="nav-link" href="/user/login"><b>Login</b></a>
                 <% } %> <% if(currUser) { %>
-                <a class="nav-link" href="/booking/details">Bookings</a>
-                <a class="nav-link" href="/logout"><b>Logout</b></a>
+                <a class="nav-link" href="/bookings/booking/details">Bookings</a>
+                <a class="nav-link" href="/user/logout"><b>Logout</b></a>
                 <% } %>
             </div>
         </div>

@@ -44,7 +44,7 @@
                             <p class="card-text">| Check-Out: <%= new Date(booking.checkOutDate).toLocaleDateString() %><br></p>
                         </div>
 
-                        <form action="/booking/<%= booking._id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this booking?');">
+                        <form action="/bookings/booking/<%= booking._id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this booking?');">
                             <button class="btn btn-primary mt-3">Delete Booking</button>
                         </form>                        
                     </div>
