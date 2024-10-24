@@ -40,14 +40,14 @@
             </div>
             <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
                 <div class="btns">
-                    <a href="/listings/<%= listing._id %>/edit"><button class="btn btn-dark add-btn mt-1">Edit</button></a>
-                    <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST" onsubmit="return confirmDelete()">
+                    <a href="/<%= listing._id %>/edit"><button class="btn btn-dark add-btn mt-1">Edit</button></a>
+                    <form action="/<%= listing._id %>?_method=DELETE" method="POST" onsubmit="return confirmDelete()">
                         <button class="btn btn-dark add-btn mt-1">Delete</button>
                     </form>
-                    <a href="/listings/<%= listing._id %>/book" class="btn btn-dark add-btn mt-3">Book Now</a>
+                    <a href="/<%= listing._id %>/book" class="btn btn-dark add-btn mt-3">Book Now</a>
                 </div>
             <% } else { %>
-                <a href="/listings"><button class="btn btn-dark add-btn mt-3">Back</button></a>
+                <a href="/"><button class="btn btn-dark add-btn mt-3">Back</button></a>
             <% } %>
             <hr>
         </div>

@@ -7,13 +7,13 @@ module.exports.renderBookingForm = async (req, res) => {
         const listing = await Listing.findById(req.params.id);
         if (!listing) {
             req.flash("error", "Listing not found.");
-            return res.redirect("/listings");
+            return res.redirect("/");
         }
         res.render('booking/new.ejs', { listing });
     } catch (error) {
         console.error(error);
         req.flash("error", "Error retrieving listing.");
-        res.redirect("/listings");
+        res.redirect("/");
     }
 };
 
@@ -23,7 +23,7 @@ module.exports.createBooking = async (req, res) => {
         const listing = await Listing.findById(req.params.id);
         if (!listing) {
             req.flash("error", "Listing not found.");
-            return res.redirect("/listings");
+            return res.redirect("/");
         }
 
         const { checkInDate, checkOutDate, paymentMethod } = req.body;
@@ -53,7 +53,7 @@ module.exports.createBooking = async (req, res) => {
     } catch (error) {
         console.error(error);
         req.flash("error", "Error creating booking.");
-        res.redirect("/listings");
+        res.redirect("/");
     }
 };
 

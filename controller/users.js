@@ -13,10 +13,10 @@ module.exports.signup = async (req, res) => {
         req.login(regUser, (err) => {
             if(err){
                 req.flash("error", `Error in login`);
-                res.redirect("/listings");
+                res.redirect("/");
             }
             req.flash("success", `${username} <-_-> Welcome to Wanderlust`);
-            res.redirect("/listings");
+            res.redirect("/");
         })
     } catch (err) {
         req.flash("error", err.message);
@@ -31,7 +31,7 @@ module.exports.renderLoginForm = (req, res) => {
 
 module.exports.login = async (req, res) => {
     req.flash("success", "Welcome back to Wanderlust!");
-    let redirectUrl = res.locals.redirectUrl || "/listings";
+    let redirectUrl = res.locals.redirectUrl || "/";
     res.redirect(redirectUrl);
 }
 
@@ -42,6 +42,6 @@ module.exports.logout = (req, res, next) => {
             return next(err);
         }
         req.flash("success", "You logged out successfully");
-        res.redirect("/listings");
+        res.redirect("/");
     });
 }

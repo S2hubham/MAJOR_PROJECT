@@ -96,12 +96,12 @@ app.use((req, res, next) => {
 });
 
   
-app.get("/", (req, res) => {
-    res.redirect("/listings");
-});
+// app.get("/", (req, res) => {
+//     res.redirect("/listings");
+// });
 
 //routes
-app.use("/listings", listingsRouter);
+app.use("/", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
 app.use("/", bookingRouter); 

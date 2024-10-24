@@ -60,7 +60,7 @@
     </div>
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-4">
         <% for(let listing of allListings) { %>
-            <a href="/listings/<%= listing._id %>" class="listing-link">
+            <a href="/<%= listing._id %>" class="listing-link">
                 <div class="card col listing-card">
                     <img src="<%= listing.images && listing.images.length > 0 ? listing.images[0].url : 'https://static.vecteezy.com/system/resources/thumbnails/023/755/456/original/holding-404-error-sign-animation-repair-work-site-error-empty-state-4k-concept-footage-with-alpha-channel-transparency-colorful-page-not-found-flash-message-for-ui-ux-web-design-video.jpg' %>" class="card-img-top" alt="listing" style="height: 20rem;">
                     <div class="card-img-overlay"></div>
@@ -104,7 +104,7 @@
                         
                         data.listings.forEach(listing => {
                             listingsContainer.innerHTML += `
-                                <a href="/listings/${listing._id}" class="listing-link">
+                                <a href="/${listing._id}" class="listing-link">
                                     <div class="card col listing-card">
                                         <img src="${listing.images.length > 0 ? listing.images[0].url : 'https://static.vecteezy.com/system/resources/thumbnails/023/755/456/original/holding-404-error-sign-animation-repair-work-site-error-empty-state-4k-concept-footage-with-alpha-channel-transparency-colorful-page-not-found-flash-message-for-ui-ux-web-design-video.jpg'}" class="card-img-top" alt="listing" style="height: 20rem;">
                                         <div class="card-img-overlay"></div>
