@@ -40,6 +40,8 @@
                             <p class="card-text">| <%= booking.listing.description %><br></p>
                             <p class="card-text">| &#8377; <%= booking.totalPrice.toLocaleString("en-IN") %><br></p>
                             <p class="card-text">| <%= booking.listing.location %><br></p>
+                            <p class="card-text">| Check-In: <%= new Date(booking.checkInDate).toLocaleDateString() %><br></p>
+                            <p class="card-text">| Check-Out: <%= new Date(booking.checkOutDate).toLocaleDateString() %><br></p>
                         </div>
 
                         <form action="/booking/<%= booking._id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this booking?');">
