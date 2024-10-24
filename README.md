@@ -1,8 +1,8 @@
-# WanderLust
-WanderLust is a web application designed to connect travelers with unique accommodations, offering a user-friendly platform to find and book stays!
+# RentIT
+RentIT is a web application designed to connect travelers with unique accommodations, offering a user-friendly platform to find and book stays!
 
 ## Description
-WanderLust is a web application built with the MEN stack (MongoDB, Express.js, Node.js) that allows users to explore and book unique listings, similar to Airbnb. This project integrates various technologies, including Bootstrap for responsive design, Leaflet for interactive maps, and MongoDB Atlas for cloud database management. Users can sign up, log in, view listings, and manage their own profiles and bookings. The application is designed to be visually appealing with a focus on user experience, featuring a clean, intuitive interface and a collage-style image display for listings.
+RentIT is a web application built with the MEN stack (MongoDB, Express.js, Node.js) that allows users to explore and book unique listings, similar to Airbnb. This project integrates various technologies, including Bootstrap for responsive design, Leaflet for interactive maps, and MongoDB Atlas for cloud database management. Users can sign up, log in, view listings, and manage their own profiles and bookings. The application is designed to be visually appealing with a focus on user experience, featuring a clean, intuitive interface and a collage-style image display for listings.
 
 ## Features
 - **User Authentication:** Sign up and log in to manage your profile and bookings.
@@ -22,10 +22,10 @@ WanderLust is a web application built with the MEN stack (MongoDB, Express.js, N
 ## Setup Instructions
 1. Clone the repository:
    ```bash
-   git clone https://github.com/S2hubham/wanderlust.git
+   git clone https://github.com/S2hubham/RentIT.git
    
 2. Navigate to the project directory:
-   cd wanderlust
+   cd RentIT
    
 4. Install dependencies
    npm install
@@ -44,7 +44,7 @@ WanderLust is a web application built with the MEN stack (MongoDB, Express.js, N
 Access the application at http://localhost:3000 in your web browser.
 
 ## Deployment
-View live application at https://wanderlust-lq1y.onrender.com/listings.
+View live application at https://RentIT-lq1y.onrender.com/listings.
 (NOTE: Deployed on render.com may take time to load website)
 Use the provided UI to sign up, log in, and explore listings.
 
