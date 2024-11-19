@@ -44,7 +44,7 @@ RentIT is a web application built with the MEN stack (MongoDB, Express.js, Node.
 Access the application at http://localhost:3000 in your web browser.
 
 ## Deployment
-View live application at https://RentIT-lq1y.onrender.com/listings.
+View live application at https://rentit-fnp2.onrender.com/.
 (NOTE: Deployed on render.com may take time to load website)
 Use the provided UI to sign up, log in, and explore listings.
 
